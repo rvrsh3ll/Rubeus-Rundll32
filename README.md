@@ -14,6 +14,8 @@ This code was intended to be used to run rubeus via rundll32 as a potential appl
 
 Currently, the Rubeus command to be executed is hard-coded on line 93 of Program.cs. Command line parsing coming when I get around to it :)
 
+## Execute with:
+rundll32 Rubeus.dll,RunRubeus
 
 
 # Rubeus
