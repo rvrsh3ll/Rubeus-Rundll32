@@ -1,3 +1,21 @@
+[@harmj0y](https://twitter.com/harmj0y) is the primary author of this code base.
+
+Rubeus is licensed under the BSD 3-Clause license.
+
+This version is heavily inspired by [@3xpl01tc0d3r](https://3xpl01tc0d3r.blogspot.com/2019/11/managed-dll-exports-and-run-via-rundll32.html)
+
+and
+
+[@_xpn_](https://blog.xpnsec.com/rundll32-your-dotnet/)
+
+## Why?
+
+This code was intended to be used to run rubeus via rundll32 as a potential application whitelisting bypass technique.
+
+Currently, the Rubeus command to be executed is hard-coded on line 93 of Program.cs. Command line parsing coming when I get around to it :)
+
+
+
 # Rubeus
 
 ----
