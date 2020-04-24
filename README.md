@@ -17,6 +17,8 @@ Currently, the Rubeus command to be executed is hard-coded on line 93 of Program
 ## Execute with:
 rundll32 Rubeus.dll,RunRubeus
 
+![RunRubeus](runrubeus.png)
+
 
 # Rubeus
 
