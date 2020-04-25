@@ -32,6 +32,9 @@ namespace Rubeus
         [DllImport("user32.dll", SetLastError = true)]
         private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out int lpdwProcessId);
 
+        [DllImport("kernel32.dll", SetLastError = true)]
+        static extern string GetCommandLineA();
+
         private static void MainExecute(string commandName, Dictionary<string, string> parsedArgs)
         {
             IntPtr ptr = GetForegroundWindow();
@@ -61,8 +64,6 @@ namespace Rubeus
                 Console.WriteLine(e);
             }
         }
-       
-
 
         public static string MainString(string command)
         {
@@ -71,7 +72,7 @@ namespace Rubeus
             //  useful for PSRemoting execution
 
             string[] args = command.Split();
-
+            
             var parsed = ArgumentParser.Parse(args);
             if (parsed.ParsedOk == false)
             {
@@ -82,17 +83,19 @@ namespace Rubeus
 
             var commandName = args.Length != 0 ? args[0] : "";
 
-        
 
             MainExecute(commandName, parsed.Arguments);
             return command;
         }
-        [DllExport]
+        [DllExport("RunRubeus")]
         static void RunRubeus()
         {
-            String commandName = "triage";
-
-            MainString(commandName);
+            string commandLine = GetCommandLineA();
+            string fname = "RunRubeus"; // Function name which is exported
+            int funcval = commandLine.IndexOf(fname); // Find the index value of the function from the command line
+            int fargstartindx = funcval + fname.Length; // Find the argument starting index value
+            string finalargs = commandLine.Substring(fargstartindx).Trim(); // Copy the arguments
+            MainString(finalargs);
         }
     }
 }
