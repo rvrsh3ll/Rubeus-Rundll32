@@ -1,4 +1,4 @@
-[@harmj0y](https://twitter.com/harmj0y) is the primary author of this code base.
+﻿[@harmj0y](https://twitter.com/harmj0y) is the primary author of this code base.
 
 Rubeus is licensed under the BSD 3-Clause license.
 
@@ -12,7 +12,7 @@ and
 
 This code was intended to be used to run rubeus via rundll32 as a potential application whitelisting bypass technique.
 
-Currently, the Rubeus command to be executed is hard-coded on line 93 of Program.cs. Command line parsing coming when I get around to it :)
+Added the Command line parsing functionality.
 
 ## Execute with:
 rundll32 Rubeus.dll,RunRubeus
